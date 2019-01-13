@@ -1,0 +1,160 @@
+<button type="button" data-toggle="modal" data-target="#lisays" onclick="lisaaLaite()" class="btn btn-info btn-lg">Luo
+  uusi laite</button><br>
+
+<div id="muokkausLaite" class="modal">
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Muokkaa laitetta</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body" id="laiteMuokkausTaulu">
+        <form id="laiteMuokkausFormi">
+          <div class="form-group">
+            <label for="pwd">Kategoria:</label>
+            <select class="form-control" id="laiteKategoriat" name="kategoria_id">
+            </select> </div>
+          <div class="form-group">
+            <label for="pwd">Merkki:</label>
+            <input type="text" class="form-control" id="merkki" name="merkki">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Malli:</label>
+            <input type="text" class="form-control" id="malli" name="malli">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Sijainti:</label>
+            <input type="text" class="form-control" id="sijainti" name="sijainti">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Omistaja:</label>
+            <select class="form-control" id="laiteOmistaja" name="omistaja_id">
+            </select> </div>
+          <div class="form-group form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" id="poisto" name="poisto"> Poista laite
+            </label>
+          </div>
+          <button type="button" id="laiMuokSub" class="btn btn-primary">Tallenna tiedot</button>
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-danger" data-dismiss="modal" id="suljeMuokkausDialog">Sulje</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div id="poistoLaite" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Haluatko varmasti poistaa</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!--Näytetään mikä laite poistetaan-->
+      <div class="modal-body" id="laiteMuokkausTaulu">
+        <p id="poistettavaLaite"></p>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" id="laiPoisSub" class="btn btn-primary">Poista laite</button>
+
+        <button type="button" class="btn btn-danger" data-dismiss="modal" id="suljePoistoDialog">Peruuta</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="historiaLaite" class="modal">
+  <div class="modal-dialog  modal-lg">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Laiteen lainaukset</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!--Näytetään mikä laite poistetaan-->
+      <div class="modal-body" id="gdas">
+        <table id="laiteHistoriaTaulu" class="table table-hover">
+          </tbody>
+        </table>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Sulje</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="lisays" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Lisää laite</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+      <div id="laiteLisays" class="modal-body">
+        <form id="laiteLisaysFormi">
+          <div class="form-group">
+            <label for="pwd">Kategoria:</label>
+            <select class="form-control" id="laiteLisKategoria" name="kategoria_id">
+            </select> </div>
+          <div class="form-group">
+            <label for="pwd">Merkki:</label>
+            <input type="text" class="form-control" id="merkki" name="merkki">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Malli:</label>
+            <input type="text" class="form-control" id="malli" name="malli">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Sijainti:</label>
+            <input type="text" class="form-control" id="sijainti" name="sijainti">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Omistaja:</label>
+            <select class="form-control" id="laiteLisOmistaja" name="omistaja_id">
+          </div>
+          <div class="form-group form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" id="poisto" name="poisto"> Poista laite
+            </label>
+          </div>
+          <button type="button" id="laiLisSub" class="btn btn-primary">Tallenna tiedot</button>
+        </form>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Sulje</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+<br>
+
+<div class="form-group">
+  <label for="valittuLaite">Etsi laitteita:</label>
+  <input type="text" placeholder="Hae nimen, id:n, tyypin tai omistajan perusteella..." class="form-control w-50" id="laiteHaku"
+    onkeyup="hakuMuuttui(document.getElementById('laiteHaku').value)">
+</div>
+<br>
+<p>X = poista laite, H = laitteen lainaukset, V = muokkaa laitetta</p>
+
+<table id="laiteTaulu" class="table table-hover">
+  </tbody>
+</table>

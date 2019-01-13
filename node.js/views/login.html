@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Sisäänkirjautuminen</title>
+    <style>
+
+        .ui-dialog-titlebar-close {
+                visibility: hidden;
+            }        
+
+            #lisays {
+                margin: 1em;
+            }
+            #dialogi {
+                display: none;
+                width: 700px;
+                height: 700px;
+            }
+            #dialogi input[type="text"] {
+                display: block;
+            }
+            #muokkaa {
+                margin: 1em;
+            }
+            #muokkaus {
+                display: none;
+            }
+            #muokkaus input[type="text"] {
+                display: block;
+            }
+        </style>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#dialogi").dialog({
+                autoOpen: false,
+                buttons: [
+                    //   {
+                    //      text: "Tee uusi käyttäjä",
+                    //      click: function() {
+                    //          $(this).submit();
+                    //   $(this).dialog("close");
+                    //       },
+                    //    },
+                    {
+                        text: "Peruuta",
+                        click: function () {
+                            $(this).dialog("close");
+                        },
+                    }
+                ],
+                closeOnEscape: false,
+                draggable: false,
+                modal: true,
+                resizable: false
+            });
+
+            $("#lisays").click(function () {
+                $("#dialogi").dialog("open");
+            });
+        });
+//Muokkauksen dialogi
+
+
+
+    </script>
+</head>
+
+<body>
+    <h1>Kirjaudu sisään</h1>
+    <div>
+        <p>{{message}}</p>
+        <form method="post" action="/login">
+            <label>Käyttäjätunnus:</label> <br>
+
+            <input type="text" name="username">
+            <br>
+            <label>Salasana</label> <br>
+
+            <input type="password" name="password">
+            <br>
+            <input type="submit">
+        </form>
+    </div>
+
+    <button id="lisays">Tee uusi käyttäjä</button>
+
+    <div id="dialogi" title="Lisää uusi Käyttäjä">
+        <form id="lisayslomake" method="post" action="/createUser">
+            <label>Käyttäjätunnus:</label>
+            <input type="text" name="newusername">
+            <label>Salasana:</label>
+            <input type="text" name="newpassword">
+            <label>Nimi:</label>
+            <input type="text" name="newrealname">
+            <input type="submit">
+        </form>
+    </div>
+
+
+</body>
+
+</html>

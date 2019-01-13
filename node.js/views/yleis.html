@@ -1,0 +1,87 @@
+<script>
+    $(function () {
+        $("#varausStartdate").datepicker({
+      dateFormat: "yy-mm-dd",
+      minDate: "dateToday"
+    });
+        $("#varausEnddate").datepicker({
+          dateFormat: "yy-mm-dd",
+      minDate: "dateToday"
+    });});
+    
+    </script>
+
+<h4>Nykyiset varaukset</h4>
+<table id="nykyVarausTaulu" class="table table-hover">
+</tbody>
+</table>
+<h4>Menneet varaukset</h4>
+<table id="mennytVarausTaulu" class="table table-hover">
+</tbody>
+</table>
+
+<div id="poistoVaraus" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Haluatko varmasti poistaa varauksen</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" id="varPoisSub" class="btn btn-primary">Poista varaus</button>
+  
+          <button type="button" class="btn btn-danger" data-dismiss="modal" id="suljeVarausPoistoDialog">Peruuta</button>
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+  
+  <div id="muokkausVaraus" class="modal">
+
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Muokkaa varausta</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body" id="varausMuokkausTaulu">
+          <form id="varausMuokkausFormi">
+            <div class="form-group">
+                <label for="aloitusVarDate">Aloituspäivämäärä:</label>
+                <input type="text" id="varausStartdate" name="alkupvm">
+              </div>
+              <div class="form-group">
+                  <label for="lopetusVarDate">Lopetuspäivämäärä:</label>
+                  <input type="text" id="varausEnddate" name="loppupvm">
+              </div>
+              <div class="form-group">
+                <label for="pwd"></label>
+                <select class="form-control" id="varausStatus" name="status">
+                  <option value="0">Vapaa</option>
+                  <option value="1">Lainassa</option>
+                </select> </div>
+            <button type="button" id="varMuokSub" class="btn btn-primary">Tallenna tiedot</button>
+          </form>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+  
+          <button type="button" class="btn btn-danger" data-dismiss="modal" id="suljeVarausMuokkausDialog">Sulje</button>
+        </div>
+  
+      </div>
+    </div>
+  
+  </div>

@@ -1,0 +1,19 @@
+Serveri tarvitsee Node.js
+
+asennettavat node.js modulet:
+express
+express-session
+mysql
+express-validator
+console.table
+
+ohjelma k‰ytt‰‰ porttia 3001
+
+serveri toimii Wampin perusasetuksilla
+
+Tietokannan nimi on laiterekisteri
+Tietokannan k‰ytt‰j‰nimi on root
+
+Admin k‰ytt‰j‰tunnukset sovellukseen on:
+Tunnus: admin
+Salasana: adminn

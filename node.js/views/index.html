@@ -1,0 +1,21 @@
+{{# if errors}}
+{{else}}
+<h1>Huomenta</h1>
+{{/if}}
+{{# if condition}}
+<h1>Salasana oikein</h1>
+{{else }}
+<h1>Tunnusta ei löydy, tai salasana ei täsmää</h1>
+{{/if}}
+
+{{# if data}}
+
+{{/if}}
+
+<ul>
+    {{# each errors}}
+    <li>
+        {{ this.msg }}
+    </li>
+    {{/each}}
+</ul>
